@@ -47,7 +47,7 @@ module Jekyll
       self.data = {
         'layout' => @layout,
         'type' => 'archive',
-        'title' => "Monthly archive for #{@year}/#{@month}",
+        'title' => "#{@archive_dir_name}のアーカイブ",
         'posts' => posts,
         'url' => File.join('/',
         MonthlyArchiveUtil.archive_base(site),
@@ -95,7 +95,7 @@ module Jekyll
         posts.each do |period, post|
           month_dir = '/' + MonthlyArchiveUtil.archive_base(context.registers[:site])
           month_dir << "/#{period["year"]}/#{"%02d" % period["month"]}/"
-          html << "<li><a href='#{month_dir}'>#{period["year"]}-#{"%02d" % period["month"]}"
+          html << "<li><a href='#{month_dir}'>#{period["year"]}/#{"%02d" % period["month"]}"
           html << "  (#{post.count})" if @opts['counter']
           html << "</a></li>"
         end
