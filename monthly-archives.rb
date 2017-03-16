@@ -73,7 +73,7 @@ module Jekyll
       end
 
       def destination(dest)
-        File.join('/', dest, @dir, @archive_dir_name, 'index.html')
+        File.join(dest, @dir, @archive_dir_name, 'index.html')
       end
 
     end
